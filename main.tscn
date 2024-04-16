@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://b16b1ttbr836x"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_4b8uj"]
+[ext_resource type="Texture2D" uid="uid://dxifc4o3y7cl3" path="res://StudentSheet.png" id="1_duv4c"]
+
+[sub_resource type="Animation" id="Animation_g5fu1"]
+resource_name = "Walk Down"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [130, 131, 132, 133, 134, 135]
+}
+
+[sub_resource type="Animation" id="Animation_t5ct8"]
+resource_name = "Walk Up"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [118, 119, 120, 121, 122, 123]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uo30m"]
+_data = {
+"Walk Down": SubResource("Animation_g5fu1"),
+"Walk Up": SubResource("Animation_t5ct8")
+}
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_4b8uj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_duv4c")
+hframes = 56
+vframes = 20
+frame = 120
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+libraries = {
+"": SubResource("AnimationLibrary_uo30m")
+}
