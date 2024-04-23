@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dew3wvh4xrspu"]
+[gd_scene load_steps=4 format=3 uid="uid://dew3wvh4xrspu"]
 
 [ext_resource type="Script" path="res://Control.gd" id="1_rpy4w"]
+[ext_resource type="Theme" uid="uid://dekt75mg06nhr" path="res://new_theme.tres" id="2_c05gi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jj0c8"]
+font_size = 30
+font_color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -27,6 +32,14 @@ offset_bottom = 633.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme = ExtResource("2_c05gi")
+
+[node name="RichTextLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Evit game yes"
+label_settings = SubResource("LabelSettings_jj0c8")
+text_direction = 1
+language = "en_US"
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
