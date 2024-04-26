@@ -57,3 +57,4 @@ func _on_detection_area_body_entered(body: Node) -> void:
 func _on_detection_area_body_exited(body: Node) -> void:
 	if "Player" in body.name:  
 		playerChase = false
+

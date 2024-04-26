@@ -34,37 +34,14 @@ func updateAnimation():
 				direction = "Idle Down"
 	
 	animations.play(direction)
-
-var bistroDoorway: CollisionShape2D
-var bistroEntrance: CollisionShape2D
-var playerInRange: bool = false
+	
+@export var doors: Dictionary
+var currentDoorIn: Area2D
+var doorFailSafe:bool = false
+var altDoor:bool
 
 func _ready() -> void:
-	bistroDoorway = get_node("/root/Main/Floor_InBuildingWalls/BistroDoor/BistroDoor")
-	bistroEntrance = get_node("/root/Main/Floor_InBuildingWalls/BistroEnter/BistroEnter")
-
-func _on_bistro_door_body_entered(body: Node) -> void:
-	if "Player" in body.name:  # Assuming your player character is named "Player"
-		playerInRange = true
-
-func _on_bistro_door_body_exited(body: Node) -> void:
-	if "Player" in body.name:
-		playerInRange = false
-
-func _on_bistro_enter_body_entered(body: Node) -> void:
-	print_debug("testing")
-	if "Player" in body.name:
-		playerInRange = true
-		
-func _on_bistro_enter_body_exited(body: Node) -> void:
-	if "Player" in body.name:
-		playerInRange = false
-
-func door() -> void:
-	if bistroEntrance:
-		global_position = bistroEntrance.global_position
-	if bistroDoorway:
-		global_position = bistroDoorway.global_position
+	pass
 
 func handleCollision():
 	for i in get_slide_collision_count():
@@ -76,8 +53,6 @@ func _physics_process(delta):
 	move_and_slide()
 	handleCollision()
 	updateAnimation()
-	if Input.is_action_pressed("ui_accept") and playerInRange:
-		door()
 
 #var speed = 300
 #
@@ -87,7 +62,41 @@ func _physics_process(delta):
 		#velocity
 	#move_and_slide()
 
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		teleportDoorPlayer()
 
 func _on_hurt_box_area_entered(area):
 	if area.name == "hitBox":
 		print_debug(area.get_parent().name)
+
+func _on_hit_box_detection_area_entered(area: Area2D) -> void:
+	door(area, true)
+
+func _on_hit_box_detection_area_exited(area: Area2D) -> void:
+	door(area, false)
+
+func door(node:Area2D, inBody:bool) -> void:
+	var getStringPath:NodePath = get_path_to(node)
+	if inBody:
+		if doors.has(getStringPath):
+			currentDoorIn = node
+			altDoor = false
+		elif doors.find_key(getStringPath):
+			currentDoorIn = node
+			altDoor = true
+			
+		print(currentDoorIn, " | ", inBody)
+	else:
+		currentDoorIn = null
+		doorFailSafe = false
+
+func teleportDoorPlayer():
+	if !doorFailSafe and currentDoorIn != null:
+		if !altDoor:
+			global_position = get_node(doors[get_path_to(currentDoorIn)]).global_position
+		else:
+			global_position = get_node(doors.find_key(get_path_to(currentDoorIn))).global_position
+		doorFailSafe = true
+
+

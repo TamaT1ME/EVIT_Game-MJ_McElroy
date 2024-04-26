@@ -2147,6 +2147,9 @@ size = Vector2(30.25, 11.6786)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knd61"]
 size = Vector2(30.0273, 62.5819)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpyfd"]
+size = Vector2(30.0622, 12.0514)
+
 [sub_resource type="Animation" id="Animation_reqek"]
 resource_name = "Idle Down"
 length = 0.9
@@ -2295,9 +2298,6 @@ _data = {
 "Walk Up": SubResource("Animation_t5ct8")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpyfd"]
-size = Vector2(30.0622, 12.0514)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ou5rn"]
 size = Vector2(30.0806, 53.7326)
 
@@ -2348,14 +2348,6 @@ shape = SubResource("RectangleShape2D_knd61")
 position = Vector2(549.427, 520.881)
 platform_floor_layers = 4294967040
 script = ExtResource("1_4b8uj")
-doors = {
-NodePath("../BistroEnter"): NodePath("../BistroDoor")
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Floor_InBuildingWalls/Player"]
-libraries = {
-"": SubResource("AnimationLibrary_uo30m")
-}
 
 [node name="Sprite2D" type="Sprite2D" parent="Floor_InBuildingWalls/Player"]
 position = Vector2(-0.00976563, -17.9926)
@@ -2364,20 +2356,18 @@ hframes = 56
 vframes = 20
 frame = 74
 
-[node name="Camera2D" type="Camera2D" parent="Floor_InBuildingWalls/Player"]
-position = Vector2(0.00762939, -0.0078125)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor_InBuildingWalls/Player"]
 position = Vector2(0.0582886, 24.0114)
 shape = SubResource("RectangleShape2D_jpyfd")
 one_way_collision_margin = 0.0
 
-[node name="DoorBox" type="Area2D" parent="Floor_InBuildingWalls/Player"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Floor_InBuildingWalls/Player"]
+libraries = {
+"": SubResource("AnimationLibrary_uo30m")
+}
 
-[node name="Shape" type="CollisionShape2D" parent="Floor_InBuildingWalls/Player/DoorBox"]
-position = Vector2(0.0582886, 24.0114)
-shape = SubResource("RectangleShape2D_jpyfd")
-one_way_collision_margin = 0.0
+[node name="Camera2D" type="Camera2D" parent="Floor_InBuildingWalls/Player"]
+position = Vector2(0.00762939, -0.0078125)
 
 [node name="hurtBox" type="Area2D" parent="Floor_InBuildingWalls/Player"]
 collision_mask = 3
@@ -2418,10 +2408,7 @@ shape = SubResource("RectangleShape2D_e6cmn")
 
 [connection signal="body_entered" from="Floor_InBuildingWalls/enemy/detectionArea" to="Floor_InBuildingWalls/enemy" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Floor_InBuildingWalls/enemy/detectionArea" to="Floor_InBuildingWalls/enemy" method="_on_detection_area_body_exited"]
-[connection signal="area_entered" from="Floor_InBuildingWalls/Player/DoorBox" to="Floor_InBuildingWalls/Player" method="_on_hit_box_detection_area_entered"]
-[connection signal="area_exited" from="Floor_InBuildingWalls/Player/DoorBox" to="Floor_InBuildingWalls/Player" method="_on_hit_box_detection_area_exited"]
 [connection signal="area_entered" from="Floor_InBuildingWalls/Player/hurtBox" to="Floor_InBuildingWalls/Player" method="_on_hurt_box_area_entered"]
-[connection signal="area_exited" from="Floor_InBuildingWalls/Player/hurtBox" to="Floor_InBuildingWalls/Player" method="_on_hurt_box_area_exited"]
 [connection signal="body_entered" from="Floor_InBuildingWalls/BistroDoor" to="Floor_InBuildingWalls/Player" method="_on_bistro_door_body_entered"]
 [connection signal="body_exited" from="Floor_InBuildingWalls/BistroDoor" to="Floor_InBuildingWalls/Player" method="_on_bistro_door_body_exited"]
 [connection signal="body_entered" from="Floor_InBuildingWalls/BistroEnter" to="Floor_InBuildingWalls/Player" method="_on_bistro_enter_body_entered"]
