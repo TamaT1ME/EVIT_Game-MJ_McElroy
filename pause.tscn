@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://2srym2sxh2jb"]
+
+[ext_resource type="Theme" uid="uid://dekt75mg06nhr" path="res://new_theme.tres" id="1_3mu7c"]
+[ext_resource type="Script" path="res://pause.gd" id="1_etlr2"]
+
+[sub_resource type="Theme" id="Theme_54ao0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lrngx"]
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[node name="Pause" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_etlr2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 1181.0
+offset_bottom = 714.0
+color = Color(0.827451, 0.47451, 1, 0.607843)
+
+[node name="MarginContainer" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 17.0
+offset_right = 1131.0
+offset_bottom = 633.0
+mouse_filter = 1
+theme = SubResource("Theme_54ao0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+offset_left = 27.0
+offset_right = 1090.0
+offset_bottom = 616.0
+theme = ExtResource("1_3mu7c")
+alignment = 1
+
+[node name="RichTextLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Paused"
+label_settings = SubResource("LabelSettings_lrngx")
+horizontal_alignment = 1
+vertical_alignment = 1
+text_direction = 1
+language = "en_US"
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Menu" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit to Main Menu"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Menu" to="." method="_on_button_2_pressed"]

@@ -9,7 +9,7 @@ var playerChase: bool = false
 func _physics_process(delta):
 	if playerChase == true:
 		player = get_node("/root/Main/Floor_InBuildingWalls/Player")
-		var moveDirection = global_position.direction_to(player.position)
+		var moveDirection = global_position.direction_to(player.global_position)
 		velocity = moveDirection * speed
 		
 		move_and_slide()
