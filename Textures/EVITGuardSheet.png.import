@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxifc4o3y7cl3"
-path="res://.godot/imported/StudentSheet.png-2854ac9643e310857fccbfc8124bac0a.ctex"
+uid="uid://cavruvy0jvllq"
+path="res://.godot/imported/EVITGuardSheet.png-04120358eabf5428ca5750e30f3d9384.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://StudentSheet.png"
-dest_files=["res://.godot/imported/StudentSheet.png-2854ac9643e310857fccbfc8124bac0a.ctex"]
+source_file="res://Textures/EVITGuardSheet.png"
+dest_files=["res://.godot/imported/EVITGuardSheet.png-04120358eabf5428ca5750e30f3d9384.ctex"]
 
 [params]
 

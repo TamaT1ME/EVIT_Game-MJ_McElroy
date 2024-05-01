@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4bpd6p5dmj40"
-path="res://.godot/imported/Room_Builder_Walls_48x48.png-ea11c8c6f9a042feb263d5ee46ef7342.ctex"
+uid="uid://msx87pawwat8"
+path="res://.godot/imported/SpeedPowerUp.png-afa6db5c4332e7a9bc8ff36fc87010db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Room_Builder_Walls_48x48.png"
-dest_files=["res://.godot/imported/Room_Builder_Walls_48x48.png-ea11c8c6f9a042feb263d5ee46ef7342.ctex"]
+source_file="res://Textures/SpeedPowerUp.png"
+dest_files=["res://.godot/imported/SpeedPowerUp.png-afa6db5c4332e7a9bc8ff36fc87010db.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=54 format=3 uid="uid://bvgc7rmdayp7y"]
 
-[ext_resource type="Script" path="res://enemy.gd" id="1_0t3r5"]
-[ext_resource type="Texture2D" uid="uid://cavruvy0jvllq" path="res://EVITGuardSheet.png" id="1_np3r7"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_0t3r5"]
+[ext_resource type="Texture2D" uid="uid://cavruvy0jvllq" path="res://Textures/EVITGuardSheet.png" id="1_np3r7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hb85c"]
 atlas = ExtResource("1_np3r7")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuencoemu3gwe"
-path="res://.godot/imported/2_City_Terrains_48x48.png-0fd1b688c664db8e2c98280ec162d1cf.ctex"
+uid="uid://d0yb3vxtv70g8"
+path="res://.godot/imported/HealthPowerUp.png-1b7b090a90e4f24f93b265f9eee8a042.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2_City_Terrains_48x48.png"
-dest_files=["res://.godot/imported/2_City_Terrains_48x48.png-0fd1b688c664db8e2c98280ec162d1cf.ctex"]
+source_file="res://Textures/HealthPowerUp.png"
+dest_files=["res://.godot/imported/HealthPowerUp.png-1b7b090a90e4f24f93b265f9eee8a042.ctex"]
 
 [params]
 

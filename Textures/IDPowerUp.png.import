@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cavruvy0jvllq"
-path="res://.godot/imported/EVITGuardSheet.png-d52c1e639c82ee93851a90c1dc8760c8.ctex"
+uid="uid://dlyhlsjmhf2as"
+path="res://.godot/imported/IDPowerUp.png-4030c5162cbca12aedbab24a7f0fcaee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://EVITGuardSheet.png"
-dest_files=["res://.godot/imported/EVITGuardSheet.png-d52c1e639c82ee93851a90c1dc8760c8.ctex"]
+source_file="res://Textures/IDPowerUp.png"
+dest_files=["res://.godot/imported/IDPowerUp.png-4030c5162cbca12aedbab24a7f0fcaee.ctex"]
 
 [params]
 

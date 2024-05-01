@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://2srym2sxh2jb"]
 
 [ext_resource type="Theme" uid="uid://dekt75mg06nhr" path="res://new_theme.tres" id="1_3mu7c"]
-[ext_resource type="Script" path="res://pause.gd" id="1_etlr2"]
+[ext_resource type="Script" path="res://Scripts/pause.gd" id="1_etlr2"]
 
 [sub_resource type="Theme" id="Theme_54ao0"]
 
@@ -11,31 +11,43 @@ font_color = Color(0, 0, 0, 1)
 
 [node name="Pause" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_etlr2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 1181.0
-offset_bottom = 714.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.827451, 0.47451, 1, 0.607843)
 
 [node name="MarginContainer" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 17.0
-offset_right = 1131.0
-offset_bottom = 633.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = 29.0
+offset_right = -34.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 1
 theme = SubResource("Theme_54ao0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-offset_left = 27.0
-offset_right = 1090.0
-offset_bottom = 616.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_3mu7c")
 alignment = 1
 
@@ -52,9 +64,14 @@ language = "en_US"
 layout_mode = 2
 text = "Resume"
 
+[node name="Reset" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
 [node name="Menu" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit to Main Menu"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Reset" to="." method="_on_reset_button_down"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Menu" to="." method="_on_button_2_pressed"]

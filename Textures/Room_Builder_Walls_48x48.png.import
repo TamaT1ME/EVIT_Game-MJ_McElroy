@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnk88pd72droq"
-path="res://.godot/imported/Teacher1Sheet.png-b59c4730dbf880a620291e175cc7693f.ctex"
+uid="uid://d4bpd6p5dmj40"
+path="res://.godot/imported/Room_Builder_Walls_48x48.png-faba0b5296c1ef0ab6ad6f8fd3e3cc09.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Teacher1Sheet.png"
-dest_files=["res://.godot/imported/Teacher1Sheet.png-b59c4730dbf880a620291e175cc7693f.ctex"]
+source_file="res://Textures/Room_Builder_Walls_48x48.png"
+dest_files=["res://.godot/imported/Room_Builder_Walls_48x48.png-faba0b5296c1ef0ab6ad6f8fd3e3cc09.ctex"]
 
 [params]
 

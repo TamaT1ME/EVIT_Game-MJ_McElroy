@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dukh6oapj7s6j"
-path="res://.godot/imported/Room_Builder_Floor_Shadows_48x48.png-6428ed14a55c751e8bd9f3c4c4db566d.ctex"
+uid="uid://bdug3thik6y7a"
+path="res://.godot/imported/Teacher2Sheet.png-945c4f82b209368c43e69719c4684145.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Room_Builder_Floor_Shadows_48x48.png"
-dest_files=["res://.godot/imported/Room_Builder_Floor_Shadows_48x48.png-6428ed14a55c751e8bd9f3c4c4db566d.ctex"]
+source_file="res://Textures/Teacher2Sheet.png"
+dest_files=["res://.godot/imported/Teacher2Sheet.png-945c4f82b209368c43e69719c4684145.ctex"]
 
 [params]
 

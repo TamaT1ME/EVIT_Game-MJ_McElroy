@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ym8orfcigvbn"
-path="res://.godot/imported/Room_Builder_borders_48x48.png-a02af4a787f9f52e85fe3b2f3d1ae8c7.ctex"
+uid="uid://cuencoemu3gwe"
+path="res://.godot/imported/2_City_Terrains_48x48.png-2a0c8514382ca37faf3ee2360ed5b2ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Room_Builder_borders_48x48.png"
-dest_files=["res://.godot/imported/Room_Builder_borders_48x48.png-a02af4a787f9f52e85fe3b2f3d1ae8c7.ctex"]
+source_file="res://Textures/2_City_Terrains_48x48.png"
+dest_files=["res://.godot/imported/2_City_Terrains_48x48.png-2a0c8514382ca37faf3ee2360ed5b2ea.ctex"]
 
 [params]
 
