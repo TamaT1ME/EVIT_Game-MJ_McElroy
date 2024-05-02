@@ -487,6 +487,7 @@ NodePath("../BistroEnter"): NodePath("../BistroDoor")
 libraries = {
 "": SubResource("AnimationLibrary_uo30m")
 }
+autoplay = "Idle Down"
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(-0.00976563, -17.9926)
@@ -556,7 +557,6 @@ text = "Meals Left: 15"
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="Player"]
 process_mode = 3
-visible = false
 
 [node name="Pause" parent="Player/CanvasLayer2" instance=ExtResource("14_mwui6")]
 
