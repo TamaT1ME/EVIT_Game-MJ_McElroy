@@ -1,6 +1,11 @@
 extends Node
 signal gamePauseUpdate(gamePaused)
 var playerNode: CharacterBody2D
+var rng: RandomNumberGenerator = RandomNumberGenerator.new()
+var powerups: PackedStringArray = []
+
+var mealsDeliveredToTeacher: int
+var mealsLostToEnemy: int
 
 func togglePause():
 	get_tree().paused = !get_tree().paused

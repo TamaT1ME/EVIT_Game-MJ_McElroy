@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmb860bow0wws"]
+
+[ext_resource type="Texture2D" uid="uid://d0yb3vxtv70g8" path="res://Textures/HealthPowerUp.png" id="1_6qh3s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_camb2"]
+size = Vector2(40, 40)
+
+[node name="healthPowerUp" type="Sprite2D"]
+texture = ExtResource("1_6qh3s")
+
+[node name="Area2D" type="Area2D" parent="."]
+metadata/powerup = "Health"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_camb2")

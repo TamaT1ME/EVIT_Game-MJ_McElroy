@@ -32,7 +32,7 @@ func _ready() -> void:
 	detectArea = $detectionArea/detectionArea
 
 func _on_detection_area_body_entered(body: Node) -> void:
-	if "Player" in body.name:
+	if "Player" in body.name and "Invincibility" not in Global.powerups:
 		playerChase = true
 
 func _on_detection_area_body_exited(body: Node) -> void:

@@ -6,6 +6,8 @@ extends CharacterBody2D
 var speed = 300  # speed in pixels/sec
 var direction = 0
 var directionNumber = 0
+var input_sequence:= ["K", "I", "N", "I", "T", "O"]
+var current_index:= 0
 var teacherLookingAt: CollisionShape2D
 var currentDoorIn: Area2D
 var doorFailSafe:bool = false
@@ -21,7 +23,7 @@ var mealsLeft: int = 15:
 		mealsLeft = value
 		$"CanvasLayer/Control/VBoxContainer/Meals Left".text = "Meals Left: " + str(value)
 		if value == 0:
-			win()
+			showResults()
 
 func _ready() -> void:
 	Global.playerNode = self
@@ -62,10 +64,26 @@ func _unhandled_input(event: InputEvent) -> void:
 		teleportDoorPlayer()
 		if teacherInFront and mealsLeft > 0:
 			mealsLeft -= 1
+			Global.mealsDeliveredToTeacher += 1
+			$CanvasLayer/Control/VBoxContainer/energyBar.value += 10
+			if Global.powerups.size() > 0:
+				Global.powerups.remove_at(Global.powerups.find("Invincibility"))
 		
 	if event.is_action_pressed("ui_cancel") || event.is_action_pressed("ui_pause"):
 		print("Called")
 		Global.togglePause()
+		
+	if event.is_action_pressed(input_sequence[current_index]):
+			print(input_sequence[current_index])
+			current_index += 1
+			if current_index >= input_sequence.size():
+				print("complete!!")
+				changeSprite()
+				current_index = 0
+
+func changeSprite():
+	var texture = load('')
+	$Sprite2D.texture = texture
 
 func handleInput():
 	velocity = moveDirection * speed
@@ -88,14 +106,41 @@ func hitId(node:Area2D, inBody:bool, flag:String="") -> void:
 	else:
 		currentDoorIn = null
 		doorFailSafe = false
-	
+
 	if node.get_meta("EntityType", "null") == "Enemy" && inBody && flag=="enemy":
 		$CanvasLayer/Control/VBoxContainer/energyBar.value -= 5
+		if Global.rng.randi_range(1,10) == 1:
+			mealsLeft -= 1
+			Global.mealsLostToEnemy += 1
 	if node.get_meta("EntityType", "null") == "Teacher" && inBody && flag=="front":
 		teacherInFront = true
 	if node.get_meta("EntityType", "null") == "Teacher" && !inBody && flag=="front":
 		teacherInFront = false
+	
+	if node.get_meta("powerup", "null") == "Invincibility" && inBody && flag=="enemy":
+		#addanimationhere
+		#await $AnimationPlayer.animation_finished
+		node.get_parent().queue_free()
+		Global.powerups.append("Invincibility")
+	
+	if node.get_meta("powerup", "null") == "Speed" && inBody && flag=="enemy":
+		#addanimationhere
+		#await $AnimationPlayer.animation_finished
+		node.get_parent().queue_free()
+		Global.powerups.append("Speed")
+		speed += 75
+		$AnimationPlayer.speed_scale += .75
+		await get_tree().create_timer(15).timeout
+		Global.powerups.remove_at(Global.powerups.find("Speed"))
+		$AnimationPlayer.speed_scale -= .75
+		speed -= 75
 		
+	if node.get_meta("powerup", "null") == "Health" && inBody && flag=="enemy":
+		#addanimationhere
+		#await $AnimationPlayer.animation_finished
+		node.get_parent().queue_free()
+		Global.powerups.append("Health")
+		$CanvasLayer/Control/VBoxContainer/energyBar.value += 30
 func teleportDoorPlayer():
 	if !doorFailSafe and currentDoorIn != null:
 		if !altDoor:
@@ -107,8 +152,8 @@ func teleportDoorPlayer():
 func _on_hurt_box_area_entered(area):
 	hitId(area, true, "enemy")
 
-func win():
-	pass
+func showResults() -> void:
+	get_tree().change_scene_to_file("res://Scenes/results.tscn")
 
 func _on_front_box_area_entered(area: Area2D) -> void:
 	hitId(area, true, "front")
